@@ -13,6 +13,15 @@
     <!-- Preload LCP hero image -->
     <link rel="preload" as="image" href="/images/hero-bg.webp" type="image/webp" fetchpriority="high" />
     <link rel="preconnect" href="https://images.pexels.com" />
+    <!-- Critical above-fold styles inlined to eliminate render-blocking -->
+    <style>
+      *,::before,::after{box-sizing:border-box;margin:0;padding:0}
+      html{scroll-behavior:smooth}
+      body{font-family:'Plus Jakarta Sans','Inter',system-ui,-apple-system,sans-serif;background-color:#fbfaf7;color:#1c2620;overflow-x:hidden}
+      #root{min-height:100vh}
+      .hero-section{position:relative;height:100dvh;min-height:600px;overflow:hidden}
+      .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+    </style>
   </head>
   <body>
     <div id="root"></div>

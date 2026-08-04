@@ -3,9 +3,12 @@ import { ArrowRight, Star, ShieldCheck, Clock, Award } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import ScrollReveal from '@/components/ScrollReveal';
 import { IMAGES } from '@/data/images';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   useScrollReveal();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
 
   return (
     <div className="overflow-hidden">
@@ -42,22 +45,23 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right side: large vertical word — decorative only, hidden from a11y */}
-        <div className="absolute right-0 top-0 bottom-0 z-10 flex items-center pr-4 sm:pr-8 pointer-events-none" aria-hidden="true">
-          <span
-            className="text-white/10 font-extrabold select-none"
-            style={{
-              fontSize: 'clamp(5rem, 14vw, 13rem)',
-              writingMode: 'vertical-rl',
-              textOrientation: 'mixed',
-              letterSpacing: '0.06em',
-              lineHeight: 1,
-              willChange: 'auto',
-            }}
-          >
-            ARBORISTS
-          </span>
-        </div>
+        {/* Right side: large vertical word — deferred so it never competes for LCP */}
+        {mounted && (
+          <div className="absolute right-0 top-0 bottom-0 z-10 flex items-center pr-4 sm:pr-8 pointer-events-none" aria-hidden="true">
+            <span
+              className="text-white/10 font-extrabold select-none"
+              style={{
+                fontSize: 'clamp(5rem, 14vw, 13rem)',
+                writingMode: 'vertical-rl',
+                textOrientation: 'mixed',
+                letterSpacing: '0.06em',
+                lineHeight: 1,
+              }}
+            >
+              ARBORISTS
+            </span>
+          </div>
+        )}
 
         {/* Bottom-left: tagline + CTAs */}
         <div className="absolute bottom-0 left-0 z-20 px-6 sm:px-10 pb-12 sm:pb-16 max-w-xl">
