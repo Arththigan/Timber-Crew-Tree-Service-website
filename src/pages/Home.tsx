@@ -42,13 +42,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right side: large vertical word — CSS pseudo, not a DOM text node */}
-        <div
-          className="hero-watermark absolute right-0 top-0 bottom-0 z-10 flex items-center pr-4 sm:pr-8 pointer-events-none"
-          aria-hidden="true"
-        />
 
-        {/* Bottom-left: tagline + CTAs */}
         <div className="absolute bottom-0 left-0 z-20 px-6 sm:px-10 pb-12 sm:pb-16 max-w-xl">
           <h1 className="font-display font-extrabold text-white leading-tight mb-6"
             style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)' }}>

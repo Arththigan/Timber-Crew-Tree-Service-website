@@ -204,20 +204,3 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.08);
 }
 
-/* Hero watermark — CSS pseudo so it's never an LCP candidate */
-.hero-watermark::after {
-  content: 'ARBORISTS';
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%) rotate(90deg);
-  transform-origin: center;
-  font-size: clamp(5rem, 14vw, 13rem);
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  line-height: 1;
-  color: rgba(255, 255, 255, 0.10);
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
-}
