@@ -21,3 +21,6 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Firebase deploy cache (auto-generated, not needed in git)
+.firebase/
