@@ -77,12 +77,12 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1);
 }
 
-/* Softer distances on mobile */
+/* Softer distances on mobile — fade only, no movement */
 @media (max-width: 768px) {
-  .reveal          { transform: translateY(30px); }
-  .reveal-left     { transform: translateX(-30px); }
-  .reveal-right    { transform: translateX(30px); }
-  .reveal-scale    { transform: scale(0.95); }
+  .reveal          { transform: none; }
+  .reveal-left     { transform: none; }
+  .reveal-right    { transform: none; }
+  .reveal-scale    { transform: none; }
 }
 
 /* Continuous floating animation for decorative elements */
