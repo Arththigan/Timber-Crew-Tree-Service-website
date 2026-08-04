@@ -13,4 +13,18 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  build: {
+    cssCodeSplit: false,
+    rollupOptions: {
+      output: {
+        // Keep CSS in a single file so critters can inline it
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        // Split vendor JS from app JS to reduce main bundle
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          motion: ['framer-motion'],
+        },
+      },
+    },
+  },
 });
