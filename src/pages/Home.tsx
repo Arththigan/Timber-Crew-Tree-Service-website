@@ -42,8 +42,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right side: large vertical word */}
-        <div className="absolute right-0 top-0 bottom-0 z-10 flex items-center pr-4 sm:pr-8 pointer-events-none">
+        {/* Right side: large vertical word — decorative only, hidden from a11y */}
+        <div className="absolute right-0 top-0 bottom-0 z-10 flex items-center pr-4 sm:pr-8 pointer-events-none" aria-hidden="true">
           <span
             className="text-white/10 font-extrabold select-none"
             style={{
@@ -52,6 +52,7 @@ export default function Home() {
               textOrientation: 'mixed',
               letterSpacing: '0.06em',
               lineHeight: 1,
+              willChange: 'auto',
             }}
           >
             ARBORISTS
@@ -117,6 +118,10 @@ export default function Home() {
                 src={IMAGES.home.about}
                 alt="Tree surgeon pruning branches"
                 className="w-full h-[480px] object-cover"
+                loading="lazy"
+                decoding="async"
+                width={600}
+                height={480}
               />
             </div>
             <div className="absolute -bottom-8 -right-8 bg-brand-green rounded-2xl p-6 shadow-3d-lg text-white max-w-[180px]">
@@ -188,7 +193,7 @@ export default function Home() {
               <ScrollReveal key={s.title} direction="up" distance={120} delay={i * 0.08}>
                 <div className="card-3d bg-white rounded-2xl overflow-hidden shadow-3d h-full">
                   <div className="img-zoom h-48 overflow-hidden">
-                    <img src={s.img} alt={s.title} className="w-full h-full object-cover" />
+                    <img src={s.img} alt={s.title} className="w-full h-full object-cover" loading="lazy" decoding="async" width={400} height={192} />
                   </div>
                   <div className="p-6">
                     <h3 className="font-display font-bold text-lg text-brand-charcoal mb-2">{s.title}</h3>
@@ -271,7 +276,7 @@ export default function Home() {
       {/* CTA */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src={IMAGES.home.cta} alt="Landscaped property" className="w-full h-full object-cover" />
+          <img src={IMAGES.home.cta} alt="Landscaped property" className="w-full h-full object-cover" loading="lazy" decoding="async" />
           <div className="absolute inset-0 bg-gradient-to-r from-brand-charcoal/90 to-brand-green-dark/80" />
         </div>
         <div className="relative max-w-4xl mx-auto px-5 sm:px-8 text-center text-white reveal-scale">

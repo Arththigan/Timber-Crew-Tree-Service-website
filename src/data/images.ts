@@ -5,12 +5,12 @@ export const IMAGES = {
   // HOME page
   home: {
     hero: 'https://images.pexels.com/photos/6218318/pexels-photo-6218318.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    about: 'https://images.pexels.com/photos/2310483/pexels-photo-2310483.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    service1: 'https://images.pexels.com/photos/31127615/pexels-photo-31127615.jpeg?auto=compress&cs=tinysrgb&w=1000',
-    service2: 'https://images.pexels.com/photos/7509490/pexels-photo-7509490.jpeg?auto=compress&cs=tinysrgb&w=1000',
-    service3: 'https://images.pexels.com/photos/9806894/pexels-photo-9806894.jpeg?auto=compress&cs=tinysrgb&w=1000',
-    service4: 'https://images.pexels.com/photos/32394146/pexels-photo-32394146.jpeg?auto=compress&cs=tinysrgb&w=1000',
-    cta: 'https://images.pexels.com/photos/5997994/pexels-photo-5997994.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    about: 'https://images.pexels.com/photos/2310483/pexels-photo-2310483.jpeg?auto=compress&cs=tinysrgb&w=800',
+    service1: 'https://images.pexels.com/photos/31127615/pexels-photo-31127615.jpeg?auto=compress&cs=tinysrgb&w=650',
+    service2: 'https://images.pexels.com/photos/7509490/pexels-photo-7509490.jpeg?auto=compress&cs=tinysrgb&w=650',
+    service3: 'https://images.pexels.com/photos/9806894/pexels-photo-9806894.jpeg?auto=compress&cs=tinysrgb&w=650',
+    service4: 'https://images.pexels.com/photos/32394146/pexels-photo-32394146.jpeg?auto=compress&cs=tinysrgb&w=650',
+    cta: 'https://images.pexels.com/photos/5997994/pexels-photo-5997994.jpeg?auto=compress&cs=tinysrgb&w=1200',
   },
 
   // SERVICES page
