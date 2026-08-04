@@ -13,11 +13,18 @@ export default function Home() {
       <section className="relative h-screen min-h-[600px] overflow-hidden">
         {/* Full-bleed background image */}
         <div className="absolute inset-0">
-          <img
-            src="/images/hero-bg.jpg"
-            alt="Timber Crew arborists working on a large tree in the forest"
-            className="w-full h-full object-cover object-center"
-          />
+          <picture>
+            <source srcSet="/images/hero-bg.webp" type="image/webp" />
+            <img
+              src="/images/hero-bg.jpg"
+              alt="Timber Crew arborists working on a large tree in the forest"
+              className="w-full h-full object-cover object-center"
+              fetchPriority="high"
+              decoding="async"
+              width={1920}
+              height={1080}
+            />
+          </picture>
           {/* Dark gradient overlay — heavier at bottom-left for text legibility */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-black/20" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
@@ -91,7 +98,7 @@ export default function Home() {
           {[...Array(2)].map((_, dup) => (
             <div key={dup} className="flex items-center gap-12 px-6">
               {['Tree Removal', 'Stump Grinding', 'Emergency Service', 'Tree Trimming', 'Land Clearing', 'Tree Health'].map((item) => (
-                <span key={item} className="text-white/40 font-bold text-lg tracking-wide flex items-center gap-12">
+                <span key={item} className="text-white/70 font-bold text-lg tracking-wide flex items-center gap-12">
                   {item}
                   <span className="text-brand-green-light">✦</span>
                 </span>

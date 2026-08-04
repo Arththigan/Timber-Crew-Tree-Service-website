@@ -60,11 +60,16 @@ export default function Navbar() {
     >
       <nav className="flex h-24 items-center justify-between px-5 sm:px-8 lg:hidden">
         <Link to="/" className="block h-14 w-44 overflow-hidden" aria-label="Timber Crew Tree Service home">
-          <img
-            src="/images/WhatsApp_Image_2026-07-21_at_18.40.44-Photoroom.png"
-            alt="Timber Crew Tree Service"
-            className="h-44 w-44 -translate-y-[3.75rem] object-contain"
-          />
+          <picture>
+            <source srcSet="/images/logo.webp" type="image/webp" />
+            <img
+              src="/images/logo.png"
+              alt="Timber Crew Tree Service"
+              className="h-44 w-44 -translate-y-[3.75rem] object-contain"
+              width={176}
+              height={176}
+            />
+          </picture>
         </Link>
         <button
           type="button"
@@ -79,11 +84,16 @@ export default function Navbar() {
 
       <nav className="mx-auto hidden max-w-7xl items-center justify-between px-5 sm:px-8 lg:flex">
         <Link to="/" className="group block h-14 w-44 overflow-hidden" aria-label="Timber Crew Tree Service home">
-          <img
-            src="/images/WhatsApp_Image_2026-07-21_at_18.40.44-Photoroom.png"
-            alt="Timber Crew Tree Service"
-            className="h-44 w-44 -translate-y-[3.75rem] object-contain transition-transform duration-300 group-hover:scale-[1.03]"
-          />
+          <picture>
+            <source srcSet="/images/logo.webp" type="image/webp" />
+            <img
+              src="/images/logo.png"
+              alt="Timber Crew Tree Service"
+              className="h-44 w-44 -translate-y-[3.75rem] object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+              width={176}
+              height={176}
+            />
+          </picture>
         </Link>
 
         <nav

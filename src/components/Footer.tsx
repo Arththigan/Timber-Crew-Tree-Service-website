@@ -16,11 +16,17 @@ export default function Footer() {
               className="mb-5 block h-20 w-56 overflow-hidden rounded-2xl bg-white/95 shadow-3d"
               aria-label="Timber Crew Tree Service home"
             >
-              <img
-                src="/images/WhatsApp_Image_2026-07-21_at_18.40.44-Photoroom.png"
-                alt="Timber Crew Tree Service"
-                className="h-56 w-56 -translate-y-[4.75rem] object-contain transition-transform duration-300 hover:scale-[1.03]"
-              />
+              <picture>
+                <source srcSet="/images/logo.webp" type="image/webp" />
+                <img
+                  src="/images/logo.png"
+                  alt="Timber Crew Tree Service"
+                  className="h-56 w-56 -translate-y-[4.75rem] object-contain transition-transform duration-300 hover:scale-[1.03]"
+                  width={224}
+                  height={224}
+                  loading="lazy"
+                />
+              </picture>
             </Link>
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
               Professional tree care you can trust. Licensed, insured, and dedicated to
@@ -42,9 +48,9 @@ export default function Footer() {
 
           {/* Quick links */}
           <div className="reveal" style={{ transitionDelay: '0.1s' }}>
-            <h4 className="font-bold text-sm uppercase tracking-wider text-brand-green-light mb-5">
+            <p className="font-bold text-sm uppercase tracking-wider text-brand-green-light mb-5">
               Explore
-            </h4>
+            </p>
             <ul className="space-y-3">
               {[
                 { label: 'Home', path: '/' },
@@ -67,9 +73,9 @@ export default function Footer() {
 
           {/* Services */}
           <div className="reveal" style={{ transitionDelay: '0.2s' }}>
-            <h4 className="font-bold text-sm uppercase tracking-wider text-brand-green-light mb-5">
+            <p className="font-bold text-sm uppercase tracking-wider text-brand-green-light mb-5">
               Services
-            </h4>
+            </p>
             <ul className="space-y-3">
               {[
                 'Tree Removal',
@@ -92,9 +98,9 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="reveal" style={{ transitionDelay: '0.3s' }}>
-            <h4 className="font-bold text-sm uppercase tracking-wider text-brand-green-light mb-5">
+            <p className="font-bold text-sm uppercase tracking-wider text-brand-green-light mb-5">
               Get in Touch
-            </h4>
+            </p>
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-white/60 text-sm">
                 <MapPin className="w-5 h-5 text-brand-green-light shrink-0 mt-0.5" />
