@@ -4,19 +4,20 @@ import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 type ScrollRevealProps = {
   children: ReactNode;
   className?: string;
-  /** Direction the content travels as it scrolls through the viewport. */
   direction?: 'up' | 'down' | 'left' | 'right';
-  /** Travel distance in px. */
   distance?: number;
-  /** Extra delay (s) applied to the transition. */
   delay?: number;
 };
 
+/** True when the device is likely a touch/mobile screen. */
+const isMobile =
+  typeof window !== 'undefined' &&
+  (window.matchMedia('(max-width: 768px)').matches ||
+    window.matchMedia('(pointer: coarse)').matches);
 
 /**
- * Tracks this element's scroll position through the viewport and translates
- * it on the Y or X axis based on scroll progress — creating continuous,
- * scroll-driven movement (not just a one-shot reveal).
+ * On desktop: continuous scroll-driven parallax (moves while scrolling).
+ * On mobile: simple one-shot fade-up on enter — no continuous movement.
  */
 export default function ScrollReveal({
   children,
@@ -31,34 +32,46 @@ export default function ScrollReveal({
     offset: ['start end', 'end start'],
   });
 
-  // progress 0 = element entering from bottom, 0.5 = centered, 1 = exiting top
   const move = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
     [distance, 0, -distance],
   );
-
-  // Create every motion value unconditionally so hook ordering stays stable if
-  // the direction prop changes between renders.
   const reverseMove = useTransform(move, (value) => -value);
   const stationary = useTransform(scrollYProgress, () => 0);
 
   const x: MotionValue<number> =
     direction === 'left' ? move : direction === 'right' ? reverseMove : stationary;
-
   const y: MotionValue<number> =
     direction === 'up' ? move : direction === 'down' ? reverseMove : stationary;
 
-  const opacity = useTransform(
+  const scrollOpacity = useTransform(
     scrollYProgress,
     [0, 0.2, 0.8, 1],
     [0, 1, 1, 0],
   );
 
+  /* ── Mobile: simple one-shot fade-up, no continuous movement ── */
+  if (isMobile) {
+    return (
+      <motion.div
+        ref={ref}
+        className={className}
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '0px 0px -40px 0px' }}
+        transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }}
+      >
+        {children}
+      </motion.div>
+    );
+  }
+
+  /* ── Desktop: scroll-driven parallax ── */
   return (
     <motion.div
       ref={ref}
-      style={{ x, y, opacity }}
+      style={{ x, y, opacity: scrollOpacity }}
       transition={{ duration: 0.6, delay }}
       className={className}
     >

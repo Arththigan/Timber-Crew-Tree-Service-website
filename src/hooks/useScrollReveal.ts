@@ -3,13 +3,16 @@ import { useEffect } from 'react';
 /**
  * Observes elements with the `reveal`, `reveal-left`, `reveal-right`, or
  * `reveal-scale` classes and adds `reveal-up` when they enter the viewport.
- * Creates the always-scrolling move-up-on-scroll effect across the site.
+ * On mobile uses a lighter threshold so elements trigger sooner and don't
+ * feel like they're stuck waiting.
  */
 export function useScrollReveal() {
   useEffect(() => {
     const elements = document.querySelectorAll(
       '.reveal, .reveal-left, .reveal-right, .reveal-scale',
     );
+
+    const mobile = window.matchMedia('(max-width: 768px)').matches;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -19,7 +22,10 @@ export function useScrollReveal() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' },
+      {
+        threshold: mobile ? 0.05 : 0.12,
+        rootMargin: mobile ? '0px 0px -20px 0px' : '0px 0px -60px 0px',
+      },
     );
 
     elements.forEach((el) => observer.observe(el));
